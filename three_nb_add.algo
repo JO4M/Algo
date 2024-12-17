@@ -1,0 +1,49 @@
+ALGORITHM compteur alphabet //Nom de l'algorithme
+VAR
+    phrase : STRING
+    nbr_car, nbr_mots,nbr_voy:INTEGER
+    caractere : CHAR
+    voyelles : ARRAY_OF voyelle[1...6];
+BEGIN
+    WRITE ("entrez une phrase: ")
+    READ (phrase)
+
+    WHILE (caractere in phrase) DO
+        IF (caractere <>".") THEN
+
+    //calcul du nombre de charactéres
+    0 <- nbr_car  // initialiser le nombre de caractere à 0
+    FOR caractere in phrase DO  //pour chaque caractére dans phrase
+        nbr_car = nbr_car + 1  
+    END_FOR
+    WRITE ("Le nombre de caractére est de ",nbr_car,".")
+
+//Calcul du nomnbre de mot
+0 <- nbr_mots
+FOR caractere in phrase DO 
+IF ( caractere == " ") THEN
+    nbr_mots = nbr_mots + 1
+END_IF
+END_FOR
+WRITE("La phrase compte ",nbr_mots,"mots.")
+
+//calcul du nombre de voyelle
+["i","u","o","a","e","y"]<- voyelles
+0 <- nbr_voy
+FOR caractere in phrase DO
+    FOR voyelle in voyelles DO
+        IF (caractere = voyelle) THEN
+            nbr_voy = nbr_voy + 1
+        END_IF
+    END_FOR
+    END_IF
+END_FOR
+        WRITE ("La phrase compte ",nbr_voy,"voyelles.")
+
+        ELSE
+            nbr_car=nbr_car
+            nbr_mots=nbr_mots
+            nbr_voy=nbr_voy
+        END_IF
+    END_WHILE
+END
